@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/untitled.dir/main.c.o -o untitled 

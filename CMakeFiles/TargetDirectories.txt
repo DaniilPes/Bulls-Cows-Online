@@ -1,0 +1,3 @@
+/afs/zcu.cz/users/p/pesotsky/home/Downloads/final-main/CMakeFiles/untitled.dir
+/afs/zcu.cz/users/p/pesotsky/home/Downloads/final-main/CMakeFiles/edit_cache.dir
+/afs/zcu.cz/users/p/pesotsky/home/Downloads/final-main/CMakeFiles/rebuild_cache.dir

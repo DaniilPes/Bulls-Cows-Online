@@ -230,7 +230,7 @@ int main() {
             close(new_socket);
             free(client_socket);
         }else {
-            printf("\n\n1\n\n");
+            //printf("\n\n1\n\n");
             pthread_detach(client_thread);//123
         }
     }
@@ -439,7 +439,7 @@ Player* find_player(const char* nickname) {
             }
         }
     }
-    printf("Player not found1.\n");
+//    printf("Player not found1.\n");
     return NULL;
 }
 
@@ -471,7 +471,7 @@ void create_room(int client_socket, const char* nickname) {
         }
     }
 
-    printf("here1");
+    //printf("here1");
     Room new_room;
     snprintf(new_room.room_name, sizeof(new_room.room_name), "%s's Room", nickname);
     new_room.player_count = 1;
@@ -518,7 +518,7 @@ void create_room(int client_socket, const char* nickname) {
     char nickname_list[BUFFER_SIZE] = "NICKNAMES:";
     strcat(nickname_list, nickname);
     strcat(nickname_list, "\n");
-    printf("here2");
+    //printf("here2");
     send(client_socket, nickname_list, strlen(nickname_list), 0);
 
     pthread_mutex_unlock(&room_mutex);
@@ -854,7 +854,7 @@ void* check_player_pings(void* arg) {
 
         for (int i = 0; i < MAX_SAVED_PLAYERS; i++) {
             if (clients[i].is_connected) {
-                if (difftime(current_time, clients[i].last_ping_time) > 10) { // 60 секунд без пинга
+                if (difftime(current_time, clients[i].last_ping_time) > 20) { // 60 секунд без пинга
                     printf("Client %d timed out. Disconnecting...\n", clients[i].socket);
 
                     printf("-%s-\n", clients[i].nickname);
@@ -1091,7 +1091,7 @@ void handle_user_secret(int socket, const char *args, char *nickname) {
 
 bool handle_nickname(int socket, const char *args, char *nickname) { //123
     int test_tmp_pocet = testClinetInfo(nickname);
-    printf("TOTAL=CLIENT=COUNT===%d",test_tmp_pocet);
+    printf("TOTAL=CLIENT=COUNT===%d\n",test_tmp_pocet);
     if (is_nickname_taken(nickname)) {
         send_message(socket, "NICKNAME_TAKEN");
 
